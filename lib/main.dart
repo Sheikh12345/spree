@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spree/screens/Home/home_page.dart';
+import 'package:spree/screens/Home/main_widget.dart';
 
 void main() {
   runApp(MyApp());
