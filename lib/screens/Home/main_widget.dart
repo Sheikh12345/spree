@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:spree/screens/Cart/cart_screen.dart';
-import 'package:spree/screens/Home/Brands/all_brands.dart';
-import 'package:spree/screens/Home/functions/functions.dart';
 import 'package:spree/screens/Search/search_screen.dart';
-import 'package:spree/screens/account.dart';
+import 'package:spree/screens/Account/account.dart';
 
 import 'home.dart';
 
@@ -33,7 +30,7 @@ class _HomePageState extends State<HomePage> {
         bottomNavigationBar: Container(
           height: size.height*0.08,
           child: BottomNavigationBar(
-
+         backgroundColor: Colors.white,
             onTap: (index){
               setState(() {
                 _tabIndex = index;

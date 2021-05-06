@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spree/screens/Home/functions/functions.dart';
 
+import 'components/brand.dart';
 import 'components/category.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -57,6 +58,7 @@ class _SearchScreenState extends State<SearchScreen> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -94,7 +96,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
 
-              /// Brose by Category
+              /// Browse by Category
               Container(
                 margin: EdgeInsets.only(
                     left: size.width * 0.04,
@@ -166,7 +168,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     }),
               ),
 
-              /// Brose by Brand
+              /// Browse by Brand
               Container(
                 margin: EdgeInsets.only(
                     left: size.width * 0.04,
@@ -184,7 +186,9 @@ class _SearchScreenState extends State<SearchScreen> {
                           fontWeight: FontWeight.w900),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        screenPush(context, Brand());
+                      },
                       child: Row(
                         children: [
                           Text(

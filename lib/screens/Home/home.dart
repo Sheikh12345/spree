@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:spree/screens/ProductView/product_view.dart';
 
 import 'Brands/all_brands.dart';
 import 'functions/functions.dart';
@@ -60,6 +61,7 @@ class _HomeTabState extends State<HomeTab> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SafeArea(child: Scaffold(
+      backgroundColor: Colors.white,
       body:SingleChildScrollView(
         child: Column(
           children: [
@@ -142,42 +144,50 @@ class _HomeTabState extends State<HomeTab> {
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_,index){
-                  return    Container(
-                    margin: EdgeInsets.all(size.width*0.02),
-                    height: size.height*0.35,
-                    width: size.width*0.4,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
+                  return    InkWell(
+                    onTap: (){
+                      moveToProductView(image: "honey.png",title:"Honey",
+                      brand: "Great Jones",
+                      price:155.00,
+                      desc: "Honey, sweet, viscous liquid food, dark golden in colour, produced in the honey sacs of various bees from the nectar of flowers. Flavour and colour are determined by the flowers from which the nectar is gathered. Some of the most commercially desirable honeys are produced from clover by the domestic honeybee.");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(size.width*0.02),
+                      height: size.height*0.35,
+                      width: size.width*0.4,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
 
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: size.height*0.2,
-                          width: size.width*0.4,
-                          child: Image.asset("images/honey.png"),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: size.width*0.03),
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
-                              SizedBox(
-                                height: size.height*0.004,
-                              ),
-                              Text("Honey",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
-                              ,      SizedBox(
-                                height: size.height*0.01,
-                              ),
-                              Text("\$155.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
-
-                            ],
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: size.height*0.2,
+                            width: size.width*0.4,
+                            child: Image.asset("images/honey.png"),
                           ),
-                        )
-                      ],
+                          Container(
+                            margin: EdgeInsets.only(left: size.width*0.03),
+                            alignment: Alignment.centerLeft,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
+                                SizedBox(
+                                  height: size.height*0.004,
+                                ),
+                                Text("Honey",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
+                                ,      SizedBox(
+                                  height: size.height*0.01,
+                                ),
+                                Text("\$155.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
+
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -200,39 +210,47 @@ class _HomeTabState extends State<HomeTab> {
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_,index){
-                  return    Container(
-                    margin: EdgeInsets.all(size.width*0.02),
-                    width: size.width*0.4,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: size.height*0.2,
-                          width: size.width*0.4,
-                          child: Image.asset("images/care.png"),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: size.width*0.03),
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
-                              SizedBox(
-                                height: size.height*0.004,
-                              ),
-                              Text("Lotion",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
-                              ,      SizedBox(
-                                height: size.height*0.01,
-                              ),
-                              Text("\$155.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
-
-                            ],
+                  return    GestureDetector(
+                    onTap: (){
+                      moveToProductView(image: "care.png",title:"Lotion",
+                          brand: "Great Jones",
+                          price:155.00,
+                          desc: "Honey, sweet, viscous liquid food, dark golden in colour, produced in the honey sacs of various bees from the nectar of flowers. Flavour and colour are determined by the flowers from which the nectar is gathered. Some of the most commercially desirable honeys are produced from clover by the domestic honeybee.");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(size.width*0.02),
+                      width: size.width*0.4,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: size.height*0.2,
+                            width: size.width*0.4,
+                            child: Image.asset("images/care.png"),
                           ),
-                        )
-                      ],
+                          Container(
+                            margin: EdgeInsets.only(left: size.width*0.03),
+                            alignment: Alignment.centerLeft,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
+                                SizedBox(
+                                  height: size.height*0.004,
+                                ),
+                                Text("Lotion",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
+                                ,      SizedBox(
+                                  height: size.height*0.01,
+                                ),
+                                Text("\$155.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
+
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -255,40 +273,48 @@ class _HomeTabState extends State<HomeTab> {
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_,index){
-                  return    Container(
-                    margin: EdgeInsets.all(size.width*0.02),
-                    width: size.width*0.4,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: size.height*0.2,
-                          width: size.width*0.4,
-                          child: Image.asset("images/weight.png"),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: size.width*0.03),
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
-                              SizedBox(
-                                height: size.height*0.004,
-                              ),
-                              Text("Classing 1lb Wights",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
-                              ,      SizedBox(
-                                height: size.height*0.01,
-                              ),
-                              Text("\$129.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
-
-                            ],
+                  return    GestureDetector(
+                    onTap: (){
+                      moveToProductView(image: "weight.png",title:"Classing 1lb Wights",
+                          brand: "Great Jones",
+                          price:135.00,
+                          desc: "Honey, sweet, viscous liquid food, dark golden in colour, produced in the honey sacs of various bees from the nectar of flowers. Flavour and colour are determined by the flowers from which the nectar is gathered. Some of the most commercially desirable honeys are produced from clover by the domestic honeybee.");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(size.width*0.02),
+                      width: size.width*0.4,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: size.height*0.2,
+                            width: size.width*0.4,
+                            child: Image.asset("images/weight.png"),
                           ),
-                        )
-                      ],
+                          Container(
+                            margin: EdgeInsets.only(left: size.width*0.03),
+                            alignment: Alignment.centerLeft,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
+                                SizedBox(
+                                  height: size.height*0.004,
+                                ),
+                                Text("Classing 1lb Wights",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
+                                ,      SizedBox(
+                                  height: size.height*0.01,
+                                ),
+                                Text("\$129.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
+
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -311,40 +337,48 @@ class _HomeTabState extends State<HomeTab> {
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_,index){
-                  return    Container(
-                    margin: EdgeInsets.all(size.width*0.02),
-                    width: size.width*0.4,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: size.height*0.2,
-                          width: size.width*0.4,
-                          child: Image.asset("images/napper.png"),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: size.width*0.03),
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
-                              SizedBox(
-                                height: size.height*0.004,
-                              ),
-                              Text("Cotton Napper",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
-                              ,      SizedBox(
-                                height: size.height*0.01,
-                              ),
-                              Text("\$129.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
-
-                            ],
+                  return    GestureDetector(
+                    onTap: (){
+                      moveToProductView(image: "napper.png",title:"Cotton Napper",
+                          brand: "Great Jones",
+                          price:121.00,
+                          desc: "Honey, sweet, viscous liquid food, dark golden in colour, produced in the honey sacs of various bees from the nectar of flowers. Flavour and colour are determined by the flowers from which the nectar is gathered. Some of the most commercially desirable honeys are produced from clover by the domestic honeybee.");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(size.width*0.02),
+                      width: size.width*0.4,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: size.height*0.2,
+                            width: size.width*0.4,
+                            child: Image.asset("images/napper.png"),
                           ),
-                        )
-                      ],
+                          Container(
+                            margin: EdgeInsets.only(left: size.width*0.03),
+                            alignment: Alignment.centerLeft,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
+                                SizedBox(
+                                  height: size.height*0.004,
+                                ),
+                                Text("Cotton Napper",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
+                                ,      SizedBox(
+                                  height: size.height*0.01,
+                                ),
+                                Text("\$129.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
+
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -367,40 +401,48 @@ class _HomeTabState extends State<HomeTab> {
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_,index){
-                  return    Container(
-                    margin: EdgeInsets.all(size.width*0.02),
-                    width: size.width*0.4,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: size.height*0.2,
-                          width: size.width*0.4,
-                          child: Image.asset("images/lagging.png"),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: size.width*0.03),
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
-                              SizedBox(
-                                height: size.height*0.004,
-                              ),
-                              Text("High-waist Airbrush\nLegging",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
-                              ,      SizedBox(
-                                height: size.height*0.01,
-                              ),
-                              Text("\$129.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
-
-                            ],
+                  return    GestureDetector(
+                    onTap: (){
+                      moveToProductView(image: "lagging.png",title:"High-waist Airbrush Legging",
+                          brand: "Great Jones",
+                          price:12.00,
+                          desc: "Honey, sweet, viscous liquid food, dark golden in colour, produced in the honey sacs of various bees from the nectar of flowers. Flavour and colour are determined by the flowers from which the nectar is gathered. Some of the most commercially desirable honeys are produced from clover by the domestic honeybee.");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(size.width*0.02),
+                      width: size.width*0.4,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: size.height*0.2,
+                            width: size.width*0.4,
+                            child: Image.asset("images/lagging.png"),
                           ),
-                        )
-                      ],
+                          Container(
+                            margin: EdgeInsets.only(left: size.width*0.03),
+                            alignment: Alignment.centerLeft,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
+                                SizedBox(
+                                  height: size.height*0.004,
+                                ),
+                                Text("High-waist Airbrush\nLegging",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
+                                ,      SizedBox(
+                                  height: size.height*0.01,
+                                ),
+                                Text("\$129.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
+
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -498,40 +540,48 @@ class _HomeTabState extends State<HomeTab> {
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_,index){
-                  return    Container(
-                    margin: EdgeInsets.all(size.width*0.02),
-                    width: size.width*0.4,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: size.height*0.2,
-                          width: size.width*0.4,
-                          child: Image.asset("images/yoga.png"),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: size.width*0.03),
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
-                              SizedBox(
-                                height: size.height*0.004,
-                              ),
-                              Text("Uplifting Yoga Block",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
-                              ,      SizedBox(
-                                height: size.height*0.01,
-                              ),
-                              Text("\$120.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
-
-                            ],
+                  return    GestureDetector(
+                    onTap: (){
+                      moveToProductView(image: "yoga.png",title:"Uplifting Yoga Block",
+                          brand: "Great Jones",
+                          price:11.00,
+                          desc: "Honey, sweet, viscous liquid food, dark golden in colour, produced in the honey sacs of various bees from the nectar of flowers. Flavour and colour are determined by the flowers from which the nectar is gathered. Some of the most commercially desirable honeys are produced from clover by the domestic honeybee.");
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(size.width*0.02),
+                      width: size.width*0.4,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: size.height*0.2,
+                            width: size.width*0.4,
+                            child: Image.asset("images/yoga.png"),
                           ),
-                        )
-                      ],
+                          Container(
+                            margin: EdgeInsets.only(left: size.width*0.03),
+                            alignment: Alignment.centerLeft,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Great Jones",style: GoogleFonts.cabin(color: Colors.grey[700],fontWeight: FontWeight.w500),),
+                                SizedBox(
+                                  height: size.height*0.004,
+                                ),
+                                Text("Uplifting Yoga Block",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: size.width*0.04),)
+                                ,      SizedBox(
+                                  height: size.height*0.01,
+                                ),
+                                Text("\$120.00",style: TextStyle(color: Colors.black.withOpacity(0.9),fontWeight: FontWeight.w700,fontSize: size.width*0.033),)
+
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -610,4 +660,10 @@ class _HomeTabState extends State<HomeTab> {
       ),
     ));
   }
+
+  moveToProductView({double price,String title,String brand,String image,String desc}){
+    screenPush(context, ProductView(desc:desc,title: title,image: image,brand: brand,price: price,));
+  }
+
+
 }

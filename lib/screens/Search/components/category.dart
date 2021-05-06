@@ -79,9 +79,9 @@ class _CategoryState extends State<Category> {
             alignment: Alignment.center,
             child: Text("${brandTitle[index]}",style: GoogleFonts.cabin(
                 color: Colors.white,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w800,
                 letterSpacing: 0.8,
-                fontSize: size.width*0.05
+                fontSize: size.width*0.06
             ),),
             width: size.width*0.26,
             height: size.width*0.26,

@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:spree/screens/Home/main_widget.dart';
+import 'package:spree/screens/OrderProvider/order_provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+      MultiProvider(providers: [
+      ChangeNotifierProvider(create: (_)=>OrderProvider())
+    ],
+    child: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,6 +20,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Spree',
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+        canvasColor: Colors.transparent,
+      ),
       home: HomePage(),
     );
   }
