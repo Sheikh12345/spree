@@ -120,7 +120,7 @@ class _ProductViewState extends State<ProductView> {
                     Text(
                       "${widget.title}",
                       style: TextStyle(
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w500,
                         fontSize: size.width * 0.08,
                         color: Colors.black,
                       ),

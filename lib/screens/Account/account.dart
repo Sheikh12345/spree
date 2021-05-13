@@ -23,8 +23,8 @@ class _AccountScreenState extends State<AccountScreen> {
 
             /// Nam & Circular Picture
             Container(
+              margin: EdgeInsets.symmetric(vertical: size.height*0.04),
               width: size.width,
-              height: size.height*0.2,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -34,49 +34,10 @@ class _AccountScreenState extends State<AccountScreen> {
                   margin: EdgeInsets.only(left: size.width*0.05),
                 ),
 
-                Container(
-                  margin: EdgeInsets.only(right: size.width*0.04),
-                  child: Stack(
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        width: size.width*0.22,
-                        height: size.width*0.22,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Text("R",style: TextStyle(
-                          fontSize: size.width*0.06,
-                          color: Colors.white,
-
-                        ),),
-                      ),
-                      Positioned(
-                        top: size.height*0.085,
-                        right: 0,
-                        child: Container(
-                          padding: EdgeInsets.all(size.width*0.007),
-                          child:Container(
-                              decoration: BoxDecoration(
-                                color: Colors.blue[900],
-                                shape: BoxShape.circle,
-                              ),
-
-                              child: Icon(Icons.camera_alt_sharp,size: size.width*0.04,color: Colors.white,)),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          width: size.width*0.09,
-                          height:  size.width*0.09,
-                        ),
-                      )
-                    ],
-                  ),
-                )
               ],),
             ),
+
+
             /// Spree Wallet
             Container(
               margin: EdgeInsets.only(left: size.width*0.05,right: size.width*0.09),

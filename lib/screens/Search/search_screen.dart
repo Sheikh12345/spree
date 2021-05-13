@@ -63,27 +63,15 @@ class _SearchScreenState extends State<SearchScreen> {
           child: Column(
             children: [
               Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(
-                    top: size.height * 0.03, left: size.width * 0.04),
-                child: Text(
-                  "Search",
-                  style: GoogleFonts.zillaSlab(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w800,
-                      fontSize: size.width * 0.09),
-                ),
-              ),
-              Container(
                 margin: EdgeInsets.only(
                     left: size.width * 0.04,
                     right: size.width * 0.04,
-                    top: size.height * 0.01,
-                    bottom: size.width * 0.03),
+                    top: size.height * 0.03,
+                    bottom: size.width * 0.07),
                 child: TextField(
                   decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: "Products and Brands",
+                      hintText: "Search Spree",
                       hintStyle: GoogleFonts.cabin(
                           letterSpacing: 1, color: Colors.grey),
                       prefixIcon: Icon(Icons.search_rounded),
@@ -101,16 +89,16 @@ class _SearchScreenState extends State<SearchScreen> {
                 margin: EdgeInsets.only(
                     left: size.width * 0.04,
                     right: size.width * 0.04,
-                    top: size.height * 0.02,
+                    top: size.height * 0.05,
                     bottom: size.height * 0.02),
                 width: size.width,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Browse by Category",
+                      "Browse Categories",
                       style: TextStyle(
-                          fontSize: size.width * 0.044,
+                          fontSize: size.width * 0.04,
                           fontWeight: FontWeight.w900),
                     ),
                     GestureDetector(
@@ -120,15 +108,15 @@ class _SearchScreenState extends State<SearchScreen> {
                       child: Row(
                         children: [
                           Text(
-                            "SEE ALL",
+                            "See All",
                             style: TextStyle(
-                                color: Colors.grey[600],
-                                fontWeight: FontWeight.w500),
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w500,fontSize: size.width*0.03,),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
                             size: size.width * 0.03,
-                            color: Colors.grey[600],
+                            color: Colors.blue,
                           )
                         ],
                       ),
@@ -141,66 +129,76 @@ class _SearchScreenState extends State<SearchScreen> {
               Container(
                 margin: EdgeInsets.only(top: size.height * 0.01),
                 width: size.width,
-                height: size.height * 0.15,
+                height: size.height * 0.2,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: title.length,
                     itemBuilder: (_, index) {
                       return Container(
-                        alignment: Alignment.center,
-                        margin: EdgeInsets.symmetric(
-                            horizontal: size.width * 0.015),
-                        width: size.width * 0.45,
-                        height: size.height * 0.12,
-                        decoration: BoxDecoration(
-                            color: Color(int.parse("0xff${colors[index]}")),
-                            borderRadius: BorderRadius.circular(5),
-                            image: DecorationImage(
-                                image: AssetImage("images/${images[index]}"))),
-                        child: Text(
-                          "${title[index]}",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: size.width * 0.045),
-                        ),
+                          alignment: Alignment.topCenter,
+                          padding: EdgeInsets.symmetric(horizontal: size.width*0.03),
+
+                          margin:
+                          EdgeInsets.symmetric(horizontal: size.width * 0.03),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                          height: size.height * 0.17,
+
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                child: Image.asset("images/${images[index]}"),
+                                width: size.width*0.25,
+                                height: size.height*0.14,
+                              ),
+                              Text(
+                                "${brandTitle[index]}",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: size.width * 0.04),
+                              ),
+                            ],
+                          )
                       );
                     }),
               ),
 
-              /// Browse by Brand
+              /// Browse Brand
               Container(
                 margin: EdgeInsets.only(
                     left: size.width * 0.04,
                     right: size.width * 0.04,
-                    top: size.height * 0.04,
+                    top: size.height * 0.07,
                     bottom: size.height * 0.02),
                 width: size.width,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Browse by Brand",
+                      "Browse Brands",
                       style: TextStyle(
-                          fontSize: size.width * 0.044,
+                          fontSize: size.width * 0.04,
                           fontWeight: FontWeight.w900),
                     ),
                     GestureDetector(
                       onTap: () {
                         screenPush(context, Brand());
                       },
-                      child: Row(
+                      child:Row(
                         children: [
                           Text(
-                            "SEE ALL",
+                            "See All",
                             style: TextStyle(
-                                color: Colors.grey[600],
-                                fontWeight: FontWeight.w500),
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w500,fontSize: size.width*0.03,),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
                             size: size.width * 0.03,
-                            color: Colors.grey[600],
+                            color: Colors.blue,
                           )
                         ],
                       ),
@@ -213,31 +211,40 @@ class _SearchScreenState extends State<SearchScreen> {
               Container(
                 margin: EdgeInsets.only(top: size.height * 0.01),
                 width: size.width,
-                height: size.height * 0.15,
+                height: size.height * 0.2,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: title.length,
                     itemBuilder: (_, index) {
                       return Container(
-                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(horizontal: size.width*0.03),
+
                         margin:
                             EdgeInsets.symmetric(horizontal: size.width * 0.03),
-                        width: size.width * 0.45,
-                        height: size.height * 0.12,
-                        decoration: BoxDecoration(
-                            color: Color(0xffccccce),
-                            borderRadius: BorderRadius.circular(5),
-                            image: DecorationImage(
-                                image:
-                                    AssetImage("images/${brandImages[index]}"),
-                                colorFilter: ColorFilter.srgbToLinearGamma())),
-                        child: Text(
-                          "${title[index]}",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: size.width * 0.045),
-                        ),
+                          decoration: BoxDecoration(
+
+                              borderRadius: BorderRadius.circular(5)
+                          ),
+                          alignment: Alignment.topCenter,
+                          height: size.height * 0.17,
+
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                                child: Image.asset("images/${brandImages[index]}"),
+                            width: size.width*0.25,
+                              height: size.height*0.14,
+                            ),
+                            Text(
+                              "${brandTitle[index]}",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: size.width * 0.04),
+                            ),
+                          ],
+                        )
                       );
                     }),
               ),
@@ -246,7 +253,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 margin: EdgeInsets.only(
                     left: size.width * 0.04,
                     right: size.width * 0.04,
-                    top: size.height * 0.04,
+                    top: size.height * 0.07,
                     bottom: size.height * 0.02),
                 width: size.width,
                 child: Row(
@@ -255,7 +262,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     Text(
                       "Top Searches",
                       style: TextStyle(
-                          fontSize: size.width * 0.044,
+                          fontSize: size.width * 0.04,
                           fontWeight: FontWeight.w900),
                     ),
                   ],
@@ -269,18 +276,31 @@ class _SearchScreenState extends State<SearchScreen> {
                     itemCount: title.length,
                     itemBuilder: (_, index) {
                       return Container(
+                        alignment: Alignment.centerLeft,
                         width: size.width,
-                        height: size.height * 0.15,
-                        margin: EdgeInsets.symmetric(
-                            horizontal: size.width * 0.04,
-                            vertical: size.width * 0.01),
+                        height: size.height * 0.13,
+                        margin: EdgeInsets.only(
+                          right:  size.width * 0.04,
+                            top: size.width * 0.01,
+                          bottom:  size.width * 0.01,
+                          left: size.width*0.031
+                        ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              width: size.width * 0.3,
-                              height: size.width * 0.3,
+                              padding: EdgeInsets.all(size.width*0.02),
+                              width: size.width * 0.2,
+                              height: size.width * 0.22,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[300]
+                              ),
+                              margin: EdgeInsets.all( size.width*0.015),
                               child:
                                   Image.asset("images/${brandImages[index]}"),
+                            ),
+                            SizedBox(
+                              width: size.width*0.02,
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -292,22 +312,27 @@ class _SearchScreenState extends State<SearchScreen> {
                                 Text(
                                   " BALA",
                                   style: TextStyle(
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.w700),
+                                      color: Colors.grey[600],
+                                    fontSize: size.width*0.025,
+                                    letterSpacing: 0.8
+                                  ),
                                 ),
                                 Text(
                                   " ${title[index]}",
-                                  style: TextStyle(
+                                  style: GoogleFonts.cabin(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontSize: size.width * 0.04),
+                                      fontSize: size.width * 0.035),
+                                ),
+                                SizedBox(
+                                  height: size.height*0.005,
                                 ),
                                 Text(
-                                  "\$29.05",
-                                  style: TextStyle(
+                                  " \$29.05",
+                                  style: GoogleFonts.cabin(
                                       color: Colors.black,
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: size.width * 0.04),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: size.width * 0.035),
                                 ),
                                 SizedBox(
                                   height: size.height * 0.02,
