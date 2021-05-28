@@ -1,7 +1,8 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spree/screens/OrderProvider/order_provider.dart';
+import 'package:spree/Services/ApiCalls/auth-calls.dart';
+import 'package:spree/providers/order_provider.dart';
 import 'package:toast/toast.dart';
 
 class ProductView extends StatefulWidget {
@@ -10,8 +11,9 @@ class ProductView extends StatefulWidget {
   final title;
   final brand;
   final desc;
+  final id;
   const ProductView(
-      {Key key, this.image, this.price, this.title, this.brand, this.desc})
+      {Key key, this.image, this.price, this.title, this.brand, this.desc, this.id})
       : super(key: key);
 
   @override
@@ -433,7 +435,7 @@ class _ProductViewState extends State<ProductView> {
                 children: [
                   GestureDetector(
                       onTap: () {
-                        if (quantity > 0) {
+                        if (quantity > 1) {
                           setState(() {
                             quantity = quantity - 1;
                           });
@@ -477,12 +479,13 @@ class _ProductViewState extends State<ProductView> {
             ),
             GestureDetector(
               onTap: () {
+                CallApi().postItemsToCart(context: context,id:widget.id,quantity:quantity);
                 Toast.show("Added to Cart", context,
                     duration: Toast.LENGTH_SHORT,
                     gravity: Toast.BOTTOM,
                     backgroundColor: Colors.blue,
                     textColor: Colors.white);
-                addToBagList(brand: widget.brand,name: widget.title,buildContext: context,pic: widget.image,price: widget.price,quantity: quantity);
+                // addToBagList(brand: widget.brand,name: widget.title,buildContext: context,pic: widget.image,price: widget.price,quantity: quantity);
                 Navigator.pop(context);
               },
               child: Container(

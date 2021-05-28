@@ -45,7 +45,8 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SafeArea(child: Scaffold(
-      appBar: AppBar(title: Text("Categories",style: GoogleFonts.zillaSlab(color: Colors.black,
+        backgroundColor: Colors.white,
+        appBar: AppBar(title: Text("Categories",style: GoogleFonts.zillaSlab(color: Colors.black,
           fontWeight: FontWeight.w900,
           letterSpacing: 0.8,
           fontSize: size.width*0.06),),centerTitle: true,

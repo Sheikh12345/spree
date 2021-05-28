@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:spree/screens/Home/functions/functions.dart';
+import 'package:spree/Common/functions.dart';
 
 import 'components/brand.dart';
 import 'components/category.dart';

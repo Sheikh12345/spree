@@ -46,6 +46,8 @@ class _BrandState extends State<Brand> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
+
         appBar: AppBar(
           title: Text(
             "Brands",

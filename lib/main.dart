@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:spree/providers/profile_provider.dart';
+import 'package:spree/screens/Auth/login_screen.dart';
 import 'package:spree/screens/Home/main_widget.dart';
-import 'package:spree/screens/OrderProvider/order_provider.dart';
+import 'package:spree/providers/order_provider.dart';
 
 void main() {
   runApp(
       MultiProvider(providers: [
-      ChangeNotifierProvider(create: (_)=>OrderProvider())
+      ChangeNotifierProvider(create: (_)=>OrderProvider()),
+      ChangeNotifierProvider(create: (_)=>ProfileProvider())
     ],
     child: MyApp(),
     )
@@ -24,7 +28,17 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         canvasColor: Colors.transparent,
       ),
-      home: HomePage(),
+      home: HomePage()
     );
+  }
+
+
+  nextSreen()async{
+    SharedPreferences preferences =await SharedPreferences.getInstance();
+    if(preferences.getString("token")!=null){
+      return HomePage();
+    }else{
+      return LoginScreen();
+    }
   }
 }

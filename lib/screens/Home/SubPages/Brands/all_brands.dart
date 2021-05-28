@@ -45,6 +45,7 @@ class _AllBrandsState extends State<AllBrands> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SafeArea(child: Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(title: Text("Brands",style: GoogleFonts.zillaSlab(color: Colors.black,
       fontWeight: FontWeight.w800,
       fontSize: size.width*0.06),),centerTitle: true,
